@@ -1,0 +1,18 @@
+{
+    "name": "diegovinie/utils",
+    "description": "Personal package with some utilities",
+    "keywords": ["random", "venezuela", "identity"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Diego Viniegra",
+            "email": "diego.viniegra@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {"Dv\\Utils\\": "src/"}
+    }
+}
