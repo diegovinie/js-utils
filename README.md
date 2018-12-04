@@ -16,3 +16,5 @@ $identity->getIdentity();
 RandomFakeIdentity::generate('m');
 //
 ```
+
+correo de contacto [diego.viniegra@gmail.com](diego.viniegra@gmail.com)
