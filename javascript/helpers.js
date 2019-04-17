@@ -11,3 +11,68 @@
 export const wrapText = length => text =>
   text.match(new RegExp(`(?:.{${length}}.*?\\s|.{1,${length}}?$)`, 'g'))
     .join('\n')
+
+/**
+ * Devuelve un número aleatorio entre 0 y max (no incluído).
+ *
+ * @param {integer} max número tope.
+ *
+ * @return {integer} número aleatorio.
+ */
+export const random = max => Math.floor(Math.random() * max)
+
+/**
+ * Devuelve un nuevo array barajeado.
+ *
+ * @uses {Function} random
+ *
+ * @param {Array} originalItems array de entrada.
+ *
+ * @return {Array} array barajeado.
+ */
+export const shuffle = originalItems => {
+  let gItems = Array.from(originalItems)
+
+  const pick = index => {
+    const item = gItems.find((_, p) => p === index)
+    gItems = gItems.filter((_, p) => p !== index)
+
+    return item
+  }
+
+  const shuffled = []
+
+  while (gItems.length > 0) {
+    shuffled.push(
+      pick(random(gItems.length))
+    )
+  }
+
+  return shuffled
+}
+
+/**
+ * Barajea una lista de elementos HTML.
+ *
+ * @uses {Function} random
+ *
+ * @param {HTMLElement} htmlListElement lista ejem. <ul>.
+ */
+export const shuffleHtmlList = htmlListElement => {
+  let gItems = Array.from(htmlListElement.children);
+
+  const pick = index => {
+    const item = gItems.find((_, p) => p === index)
+    gItems = gItems.filter((_, p) => p !== index)
+
+    return item
+  }
+
+  htmlListElement.innerHTML = ''
+
+  while (gItems.length > 0) {
+    htmlListElement.append(
+      pick(random(gItems.length))
+    )
+  }
+}
