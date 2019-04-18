@@ -76,3 +76,44 @@ export const shuffleHtmlList = htmlListElement => {
     )
   }
 }
+
+/**
+ * Devuelve un nuevo array ordenado. Inspirado en haskell.
+ *
+ * @param {Array} items ordenables.
+ *
+ * @return {Array} ordenado.
+ */
+export const quicksort = items => {
+  if (items.length == 0) return []
+
+  const head = items[0]
+  const tail = items.slice(1)
+
+  return [
+    ...quicksort(tail.filter(i => i <= head)),
+    head,
+    ...quicksort(tail.filter(i => i > head))
+  ]
+}
+
+/**
+ * Devuelve un nuevo array ordenado según una función.
+ *
+ * @param {Function} mapper para buscar algo que pueda ser ordenado.
+ * @param {Array} items
+ *
+ * @return {Array} ordenado.
+ */
+export const mapSort = mapper => items => {
+  if (items.length == 0) return []
+
+  const head = items[0]
+  const tail = items.slice(1)
+
+  return [
+    ...quicksort(tail.filter(i => mapper(i) <= mapper(head))),
+    head,
+    ...quicksort(tail.filter(i => mapper(i) > mapper(head)))
+  ]
+}
