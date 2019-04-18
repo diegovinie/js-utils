@@ -87,8 +87,7 @@ export const shuffleHtmlList = htmlListElement => {
 export const quicksort = items => {
   if (items.length == 0) return []
 
-  const head = items[0]
-  const tail = items.slice(1)
+  const [head, ...tail] = items
 
   return [
     ...quicksort(tail.filter(i => i <= head)),
@@ -108,8 +107,7 @@ export const quicksort = items => {
 export const mapSort = mapper => items => {
   if (items.length == 0) return []
 
-  const head = items[0]
-  const tail = items.slice(1)
+  const [head, ...tail] = items
 
   return [
     ...quicksort(tail.filter(i => mapper(i) <= mapper(head))),
