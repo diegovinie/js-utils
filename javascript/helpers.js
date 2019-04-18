@@ -110,8 +110,8 @@ export const mapSort = mapper => items => {
   const [head, ...tail] = items
 
   return [
-    ...quicksort(tail.filter(i => mapper(i) <= mapper(head))),
+    ...mapSort(mapper)(tail.filter(i => mapper(i) <= mapper(head))),
     head,
-    ...quicksort(tail.filter(i => mapper(i) > mapper(head)))
+    ...mapSort(mapper)(tail.filter(i => mapper(i) > mapper(head)))
   ]
 }
