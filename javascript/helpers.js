@@ -115,3 +115,24 @@ export const mapSort = mapper => items => {
     ...mapSort(mapper)(tail.filter(i => mapper(i) > mapper(head)))
   ]
 }
+
+/**
+ * Evita la repetición del evento.
+ *
+ * @param {Function} callback
+ * @param {Array} args
+ *
+ * @return {Function|null}
+ */
+export const debounce = callback => {
+  const timeout = 300
+  var busy = false
+
+  return (...args) => {
+    if (busy) return null
+    busy = true
+    setTimeout(() => { busy = false }, timeout)
+
+    return callback(...args)
+  }
+}
