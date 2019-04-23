@@ -158,6 +158,8 @@ const forwardKeyboardEvents = e => {
  * Captura los eventos para pasarlos al iframe.
  *
  * @uses {Function} forwardKeyboardEvents
+ *
+ * @param {Window} scope expects to be the parent.
  */
 const captureEvents = scope => {
   scope.addEventListener('keypress', forwardKeyboardEvents)
@@ -172,6 +174,8 @@ const captureEvents = scope => {
  * eventos zoombies.
  *
  * @uses {Function} forwardKeyboardEvents
+ *
+ * @param {Window} scope expects to be the parent.
  */
 const releaseCapturedEvents = scope => () => {
   scope.removeEventListener('keypress', forwardKeyboardEvents)
