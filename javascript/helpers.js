@@ -201,3 +201,43 @@ export const forwardParentKeyboardEvents = () => {
     window.addEventListener('finished', releaseCapturedEvents(parent))
   }
 }
+
+/**
+ * Devuelve un string único (o intenta serlo).
+ *
+ * @author pimvdb at stackoverflow.com
+ * @param {string} tag
+ * @return {string}
+ */
+const createUniqueToken = tag => (tag || '') + Math.random().toString(36).substr(2)
+
+const handleDragstart = e => {
+  e.target.id = createUniqueToken()
+  e.dataTransfer.setData('id', e.target.id)
+  console.log(e.dataTransfer)
+}
+
+const handleDragover = e => {
+  e.preventDefault()
+  console.log('dragover')
+}
+
+const handleDrop = callback => e => {
+  const id = e.dataTransfer.getData('id')
+  const el = document.getElementById(id)
+  console.log(id, el, e)
+
+  return callback(el)
+}
+
+const suscribeDragAndDrop = container => element => callback => {
+  element.addEventListener('dragstart', handleDragstart)
+  container.addEventListener('dragover', handleDragover)
+  container.addEventListener('drop', handleDrop(callback))
+}
+
+const unsuscribeDragAndDrop = container => element => callback => {
+  element.removeEventListener('dragstart', handleDragstart)
+  container.removeEventListener('dragover', handleDragover)
+  container.removeEventListener('drop', handleDrop(callback))
+}
