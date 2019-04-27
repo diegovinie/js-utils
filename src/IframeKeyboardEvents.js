@@ -22,7 +22,7 @@ const forwardKeyboardEvents = e => {
  *
  * @param {Window} scope expects to be the parent.
  */
-const captureEvents = scope => {
+export const captureEvents = scope => {
   scope.addEventListener('keypress', forwardKeyboardEvents)
   scope.addEventListener('keydown', forwardKeyboardEvents)
   scope.addEventListener('keyup', forwardKeyboardEvents)
@@ -38,7 +38,7 @@ const captureEvents = scope => {
  *
  * @param {Window} scope expects to be the parent.
  */
-const releaseCapturedEvents = scope => () => {
+export const releaseCapturedEvents = scope => () => {
   scope.removeEventListener('keypress', forwardKeyboardEvents)
   scope.removeEventListener('keydown', forwardKeyboardEvents)
   scope.removeEventListener('keyup', forwardKeyboardEvents)
@@ -52,7 +52,7 @@ const releaseCapturedEvents = scope => () => {
  * @uses {Function} captureEvents
  * @uses {Function} releaseCapturedEvents
  */
-export const forwardParentKeyboardEvents = () => {
+export const start = () => {
   const hasParent = !(parent === window)
 
   if (hasParent) {
@@ -61,4 +61,10 @@ export const forwardParentKeyboardEvents = () => {
     captureEvents(parent)
     window.addEventListener('finished', releaseCapturedEvents(parent))
   }
+}
+
+export default {
+  captureEvents,
+  releaseCapturedEvents,
+  start
 }
