@@ -1,0 +1,23 @@
+{
+  "name": "@diegovinie/js-utils",
+  "version": "1.0.0",
+  "description": "Javascript functions for general purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegovinie/js-utils.git"
+  },
+  "keywords": [
+    "javascript",
+    "es6"
+  ],
+  "author": "Diego Viniegra <diego.viniegra@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diegovinie/js-utils/issues"
+  },
+  "homepage": "https://github.com/diegovinie/js-utils#readme"
+}
