@@ -1,20 +1,5 @@
-# utils
-Personal package with some utilities
+# Javascript utils
 
-### How to use
-```php
-<?php
-require 'vendor/autoload.php';
-
-use Dv\Utils\RandomFakeIdentity;
-
-$identity = new RandomFakeIdentity('f');
-$identity->name;   // "María Rosa"
-$identity->getIdentity();
-//
-
-RandomFakeIdentity::generate('m');
-//
-```
+*TODO*
 
 correo de contacto [diego.viniegra@gmail.com](diego.viniegra@gmail.com)
