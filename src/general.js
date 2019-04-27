@@ -136,3 +136,12 @@ export const debounce = callback => {
     return callback(...args)
   }
 }
+
+/**
+ * Devuelve un string único (o intenta serlo).
+ *
+ * @author pimvdb at stackoverflow.com
+ * @param {string} tag
+ * @return {string}
+ */
+export const createUniqueToken = tag => (tag || '') + Math.random().toString(36).substr(2)
