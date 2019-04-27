@@ -19,16 +19,22 @@ const handleDrop = callback => e => {
   return callback(el)
 }
 
-const suscribe = dropZone => element => callback => {
-  element.addEventListener('dragstart', handleDragstart)
+const suscribe = dropZone => callback => {
   dropZone.addEventListener('dragover', handleDragover)
   dropZone.addEventListener('drop', handleDrop(callback))
+
+  return element => {
+    element.addEventListener('dragstart', handleDragstart)
+  }
 }
 
-const unsuscribe = dropZone => element => callback => {
-  element.removeEventListener('dragstart', handleDragstart)
+const unsuscribe = dropZone => callback => {
   dropZone.removeEventListener('dragover', handleDragover)
   dropZone.removeEventListener('drop', handleDrop(callback))
+
+  return element => {
+    element.removeEventListener('dragstart', handleDragstart)
+  }
 }
 
 export default {
