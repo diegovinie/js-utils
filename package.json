@@ -4,7 +4,8 @@
   "description": "Javascript functions for general purpose",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config test/unit/jest.conf.js --coverage",
+    "test-results": "php -S localhost:3000 -t test/unit/coverage/lcov-report && x-www-browser localhost:3000"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/diegovinie/js-utils/issues"
   },
-  "homepage": "https://github.com/diegovinie/js-utils#readme"
+  "homepage": "https://github.com/diegovinie/js-utils#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.4",
+    "babel": "^6.23.0",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1"
+  }
 }
