@@ -2,7 +2,9 @@ import {
   wrapText,
   random,
   shuffle,
-  shuffleHtmlList
+  shuffleHtmlList,
+  quicksort,
+  mapSort
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -79,6 +81,38 @@ describe('shuffleHtmlList', () => {
   })
 
   it.skip('should have different order', () => {
+
+  })
+})
+
+describe('quicksort', () => {
+  const numbers = [7, 23, 5, 1, 18, 14, 20, -2, 0, 12]
+  const alpha = ['4', 'b', 're', 'a', 'z', '12']
+  const repeated = [4, 2, 4, 7, 3, 10, 2, 4, 0]
+
+  const orderedNumbers = quicksort(numbers)
+  const orderedAlpha = quicksort(alpha)
+  const orderedRepeated = quicksort(repeated)
+
+  it('numbers should be ordered', () => {
+    expect(orderedNumbers).toEqual([-2, 0, 1, 5, 7, 12, 14, 18, 20, 23])
+  })
+
+  it('alphanumeric should be ordered', () => {
+    expect(orderedAlpha).toEqual(["12", "4", "a", "b", "re", "z"])
+  })
+
+  it('repeated should be ordered', () => {
+    expect(orderedRepeated).toEqual([0, 2, 2, 3, 4, 4, 4, 7, 10])
+  })
+})
+
+describe('mapSort', () => {
+  it.skip('should have same items', () => {
+
+  })
+
+  it.skip('should be ordered', () => {
 
   })
 })
