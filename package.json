@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest --config test/unit/jest.conf.js --coverage",
-    "test-results": "php -S localhost:3000 -t test/unit/coverage/lcov-report && x-www-browser localhost:3000"
+    "test-results": "php -S localhost:3000 -t test/unit/coverage/lcov-report && x-www-browser localhost:3000",
+    "doc": "node_modules/.bin/jsdoc ./src/general.js -d doc"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,8 @@
     "babel": "^6.23.0",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "jsdoc": "^3.5.5"
   }
 }
