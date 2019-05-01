@@ -34,6 +34,16 @@ const suscribeDiscartedStack = DragAndDrop.suscribe(dropZone)(discardCard)
 cardContainers.forEach(card => { suscribeDiscartedStack(card) })
 ```
 
+### Pruebas unitarias
+Las pruebas unitarias se realizan con *jest* corriendo `npm run test`
+También con `npm run test-results` se levanta un servidor *localhost:3000* en el directorio con el reporte.
+
+### Documentación
+La documentación se genera con jsdoc usando el comando `npm run doc` el cual
+creará un directorio `doc/` con páginas estáticas.
+
+Aparentemente jsdoc aún no soporta la sintaxis es2015 para funciones.
+
 *TODO*
 
 correo de contacto [diego.viniegra@gmail.com](diego.viniegra@gmail.com)
