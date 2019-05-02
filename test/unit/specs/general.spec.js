@@ -108,11 +108,51 @@ describe('quicksort', () => {
 })
 
 describe('mapSort', () => {
-  it.skip('should have same items', () => {
+  const items = [
+    {
+      order: 3,
+      name: 'c'
+    },
+    {
+      order: 9,
+      name: 'c'
+    },
+    {
+      order: 0,
+      name: '0'
+    },
+    {
+      order: 5,
+      name: 'e'
+    },
+    {
+      order: 6,
+      name: 'f'
+    },
+    {
+      order: 2,
+      name: 'b'
+    },
+    {
+      order: 3,
+      name: 'c'
+    }
+  ]
 
+  const orderBy = item => item.order
+
+  const ordered = mapSort(orderBy)(items)
+
+  it('should have same items', () => {
+    const one = items.map(i => ordered.includes(i))
+    const two = ordered.map(o => items.includes(o))
+
+    expect(one).toEqual(two)
   })
 
-  it.skip('should be ordered', () => {
+  it('should be ordered', () => {
+    const orderedIndexes = ordered.map(orderBy)
 
+    expect(orderedIndexes).toEqual([0, 2, 3, 3, 5, 6, 9])
   })
 })

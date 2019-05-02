@@ -105,7 +105,7 @@ export const quicksort = items => {
  * @return {Array} ordenado.
  */
 export const mapSort = mapper => items => {
-  if (items.length == 0) return []
+  if (items.length === 0) return []
 
   const [head, ...tail] = items
 
