@@ -4,7 +4,9 @@ import {
   shuffle,
   shuffleHtmlList,
   quicksort,
-  mapSort
+  mapSort,
+  reverseString,
+  checkPalindrome
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -155,4 +157,14 @@ describe('mapSort', () => {
 
     expect(orderedIndexes).toEqual([0, 2, 3, 3, 5, 6, 9])
   })
+})
+
+describe('reverseString', () => {
+  it.skip('double reverse should be the same', () => {
+
+  })
+})
+
+describe('checkPalindrome', () => {
+  
 })

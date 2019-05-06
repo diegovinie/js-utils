@@ -145,3 +145,22 @@ export const debounce = callback => {
  * @return {string}
  */
 export const createUniqueToken = tag => (tag || '') + Math.random().toString(36).substr(2)
+
+/**
+ * Voltea una cadena de texto.
+ *
+ * @param {string} stmt la cadena de texto.
+ * @return {string}
+ */
+export const reverseString = stmt =>
+  stmt.split('').map((_, i, ls) => ls[ls.length - 1 - i]).join('')
+
+/**
+ * Comprueba si una cadena es palíndrome.
+ *
+ * @uses {Function} reverseString
+ * @param {string} stmt la cadena de texto.
+ * @return {Boolean}
+ */
+export const checkPalindrome = stmt =>
+  stmt.toLowerCase() === reverseString(stmt).toLowerCase()
