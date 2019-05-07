@@ -6,7 +6,8 @@ import {
   quicksort,
   mapSort,
   reverseString,
-  checkPalindrome
+  checkPalindrome,
+  createUniqueToken
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -183,5 +184,22 @@ describe('checkPalindrome', () => {
     const isPal = checkPalindrome(text)
 
     expect(isPal).toBe(false)
+  })
+})
+
+describe('createUniqueToken', () => {
+  it('should be 11 length string', () => {
+    const token = createUniqueToken()
+
+    expect(token.length).toBe(11)
+  })
+
+  it('should be tagged', () => {
+    const tag = 'foo'
+    const token = createUniqueToken(tag)
+
+    expect(token).toEqual(
+      expect.stringMatching(`^${tag}`)
+    )
   })
 })
