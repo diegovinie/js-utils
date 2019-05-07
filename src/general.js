@@ -164,3 +164,6 @@ export const reverseString = stmt =>
  */
 export const checkPalindrome = stmt =>
   stmt.toLowerCase() === reverseString(stmt).toLowerCase()
+
+export const compose = (...fns) => arg =>
+  fns.reverse().reduce((acc, fn) => fn(acc), arg)
