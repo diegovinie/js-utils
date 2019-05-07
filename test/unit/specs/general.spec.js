@@ -160,11 +160,28 @@ describe('mapSort', () => {
 })
 
 describe('reverseString', () => {
-  it.skip('double reverse should be the same', () => {
+  const text = "La última vez que te vi terminé bastante mal"
 
+  it('double reverse should be the same', () => {
+    const reversed = reverseString(text)
+    const doubleReversed = reverseString(reversed)
+
+    expect(doubleReversed).toBe(text)
   })
 })
 
 describe('checkPalindrome', () => {
-  
+  it('should be a palindrome', () => {
+    const text = 'Able was I ere I saw Elba'
+    const isPal = checkPalindrome(text)
+
+    expect(isPal).toBe(true)
+  })
+
+  it('should not be a palindrome', () => {
+    const text = 'ddoie d soi s ás spd'
+    const isPal = checkPalindrome(text)
+
+    expect(isPal).toBe(false)
+  })
 })
