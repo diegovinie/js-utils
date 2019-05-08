@@ -165,5 +165,15 @@ export const reverseString = stmt =>
 export const checkPalindrome = stmt =>
   stmt.toLowerCase() === reverseString(stmt).toLowerCase()
 
+/**
+ * Compone funciones estilo f.g x = g(f(x))
+ *
+ * @example compose (fn4, fn3, fn2, fn1) (arg) === fn4(fn3(fn2(fn1(arg))))
+ *
+ * @param {Array[Function]} fns arreglo de funciones pasadas por parámetros.
+ * @param arg parámetro de entrada.
+ *
+ * @return el retorno de función más a la izquierda.
+ */
 export const compose = (...fns) => arg =>
   fns.reverse().reduce((acc, fn) => fn(acc), arg)
