@@ -177,3 +177,26 @@ export const checkPalindrome = stmt =>
  */
 export const compose = (...fns) => arg =>
   fns.reverse().reduce((acc, fn) => fn(acc), arg)
+
+/**
+ * Currifica una función.
+ *
+ * @example var sum = (a, b) => a + b;
+ *          var curriedSum = curryIt(sum);
+ *          curriedSum(2)(3) // 5
+ * @param {Function} fn la función que acepta varios parámetros.
+ */
+export const curryIt = fn => {
+  // crea un objecto que captura argumentos
+  function Curryfied (fun) {
+    const args = []
+
+    return captureArg = arg => {
+      args.push(arg)
+      // si los argumentos están completos retorna la función ejecutada
+      return (args.length < fun.length) ? captureArg : fun(...args.splice(0))
+    }
+  }
+
+  return new Curryfied(fn)
+}
