@@ -7,7 +7,8 @@ import {
   mapSort,
   reverseString,
   checkPalindrome,
-  createUniqueToken
+  createUniqueToken,
+  compose
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -201,5 +202,28 @@ describe('createUniqueToken', () => {
     expect(token).toEqual(
       expect.stringMatching(`^${tag}`)
     )
+  })
+})
+
+describe('compose', () => {
+  const toUppercase = string => string.toUpperCase()
+
+  it('should compose three functions', () => {
+    const res = compose(toUppercase, reverseString, createUniqueToken)('bar-')
+    expect(res).toEqual(
+      expect.stringMatching(/[^a-z]-RAB$/)
+    )
+  })
+
+  it('should return same nested and composed', () => {
+    const input = 23943
+    const sum = a => b => a + b
+    const mult = a => b => a * b
+    const toBinary = num => num.toString(2)
+
+    const composed = compose (toBinary, mult(7), sum(90)) (input)
+    const nested = toBinary(mult(7)(sum(90)(input)))
+
+    expect(composed).toBe(nested)
   })
 })
