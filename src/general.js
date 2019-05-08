@@ -204,3 +204,9 @@ export const curryIt = fn => {
 
   return new Curryfied(fn)
 }
+
+/**
+ * @author Stefan Maric @stefanmaric
+ */
+const curry = f => (...args) =>
+  args.length < f.length ? curry(f.bind(null, ...args)) : f(...args)
