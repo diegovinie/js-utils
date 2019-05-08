@@ -184,6 +184,10 @@ export const compose = (...fns) => arg =>
  * @example var sum = (a, b) => a + b;
  *          var curriedSum = curryIt(sum);
  *          curriedSum(2)(3) // 5
+ * limitaciones:
+ *   Realmente no es una función currificada sino un objeto que simula
+ *   la curryficación, por tanto tiene efectos laterales.
+ *
  * @param {Function} fn la función que acepta varios parámetros.
  */
 export const curryIt = fn => {
