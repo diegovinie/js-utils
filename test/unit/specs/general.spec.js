@@ -191,10 +191,10 @@ describe('checkPalindrome', () => {
 })
 
 describe('createUniqueToken', () => {
-  it('should be 11 length string', () => {
+  it('should be a string', () => {
     const token = createUniqueToken()
 
-    expect(token.length).toBe(11)
+    expect(typeof token).toBe('string')
   })
 
   it('should be tagged', () => {
