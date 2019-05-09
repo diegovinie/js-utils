@@ -208,5 +208,5 @@ export const curryIt = fn => {
 /**
  * @author Stefan Maric @stefanmaric
  */
-const curry = f => (...args) =>
+export const curry = f => (...args) =>
   args.length < f.length ? curry(f.bind(null, ...args)) : f(...args)

@@ -8,7 +8,9 @@ import {
   reverseString,
   checkPalindrome,
   createUniqueToken,
-  compose
+  compose,
+  curryIt,
+  curry
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -225,5 +227,24 @@ describe('compose', () => {
     const nested = toBinary(mult(7)(sum(90)(input)))
 
     expect(composed).toBe(nested)
+  })
+})
+
+describe('curry', () => {
+  const promOf5 = (a, b, c, d, e) => (a + b + c + d + e) / 5
+
+  const curriedPromOf5 = curry(promOf5)
+  const total = promOf5(5, 40, 300, 2000, 10000)
+
+  it('should take args each time', () => {
+    expect(curriedPromOf5(5)(40)(300)(2000)(10000)).toBe(total)
+  })
+
+  it('should take singles or grouped args', () => {
+    expect(curriedPromOf5(40, 5)(10000)(300, 2000)).toBe(total)
+  })
+
+  it('partial args list should return a function', () => {
+    expect(typeof curriedPromOf5(1, 2, 3, 4)).toBe('function')
   })
 })
