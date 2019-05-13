@@ -3,7 +3,7 @@
 ## wrapText
 `wrapText = length => text => String`
 
-Toma una cadena de texto *text* y la recorta en líneas de longitud mínima *length*,
+Toma una cadena de texto *text* y la recorta en líneas de longitud mínima `integer` *length*,
 introduciendo un caracter `\n`. Al llegar a la longitud *length* no corta la
 palabra sino espera hasta encontrar el primer espacio en blanco.
 
@@ -64,7 +64,7 @@ linesLength.some(len => len < 16) // false
 ## random
 `random = max => Integer`
 
-Devuelve un número entero aleatorio entre 0 y *max* (no incluído).
+Devuelve un número entero aleatorio entre 0 y el `integer` *max* (no incluído).
 
 Ejemplo:
 
@@ -83,5 +83,29 @@ const max = hundredRandomNumbers.reduce((max, num) => num > max ? num : max, 0)
 const min = hundredRandomNumbers.reduce((min, num) => num < min ? num : min, 0)
 /*
 max: 14, min: 0
+*/
+```
+
+## shuffle
+`shuffle = originalItems => Array`
+
+Devuelve un nuevo arreglo con sus elementos barajeados.
+No modifica el `Array` *originalItems*.
+
+Ejemplo:
+```js
+const cards = ['7', '8', '9', 'J', 'Q', 'K', 'A']
+
+const shuffledCards = shuffle(cards)
+/*
+[
+  "7",
+  "8",
+  "Q",
+  "K",
+  "A",
+  "J",
+  "9"
+]
 */
 ```
