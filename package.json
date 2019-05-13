@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --config test/unit/jest.conf.js --coverage",
     "test-results": "php -S localhost:3000 -t test/unit/coverage/lcov-report && x-www-browser localhost:3000",
-    "doc": "node_modules/.bin/jsdoc ./src/general.js -d doc"
+    "doc": "node_modules/.bin/jsdoc ./src/general.js -d jsdoc"
   },
   "repository": {
     "type": "git",
