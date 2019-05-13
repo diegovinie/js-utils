@@ -1,4 +1,6 @@
+# Funciones de general.js
 
+## wrapText
 `wrapText = length => text => String`
 
 Toma una cadena de texto *text* y la recorta en líneas de longitud mínima *length*,
@@ -6,6 +8,7 @@ introduciendo un caracter `\n`. Al llegar a la longitud *length* no corta la
 palabra sino espera hasta encontrar el primer espacio en blanco.
 
 Ejemplo:
+
 ```js
 const fragment = 'El recién llegado marchó derecho a la mesa, se quedó en pie, tiró al azar sobre el tapete una moneda de oro que tenía en la mano, y que fue rodando, al negro; luego, a fuerza de corazón esforzado, que abomina de trapaceras incertidumbres, lanzó al tallador una mirada, entre turbulenta y tranquila.'
 
@@ -58,12 +61,12 @@ length: 15
 linesLength.some(len => len < 16) // false
 ```
 
-random = max => Integer
+## random
+`random = max => Integer`
 
 Devuelve un número entero aleatorio entre 0 y *max* (no incluído).
 
 Ejemplo:
-
 
 ```js
 const random = random(5) // 2
