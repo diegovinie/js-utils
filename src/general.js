@@ -210,3 +210,15 @@ export const curryIt = fn => {
  */
 export const curry = f => (...args) =>
   args.length < f.length ? curry(f.bind(null, ...args)) : f(...args)
+
+/**
+ * Generador de posiciones no ocupadas.
+ *
+ * @param {Array[integer]} takenSlots lugares ya ocupados.
+ * @return {generator[integer]}
+ */
+export function* iterAvailableSlots (takenSlots) {
+  for (let pos = 1; true; pos++) {
+    if (!takenSlots.includes(pos)) yield pos
+  }
+}
