@@ -222,3 +222,18 @@ export function* iterAvailableSlots (takenSlots) {
     if (!takenSlots.includes(pos)) yield pos
   }
 }
+
+/**
+ * Devuelve un arreglo de números desde left (incluido) hasta right (no incluido).
+ *
+ * Si solo se proporciona un parámetro lo asume como right y left igual a 0.
+ *
+ * @param {Number.interger} left
+ * @param {Number.integer} right opcional
+ */
+export const range = (left, right) => {
+  const upper = right || left
+  const base = right && left || 0
+
+  return Array(upper - base).fill(base).map((n, p) => n + p)
+}
