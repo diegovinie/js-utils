@@ -211,29 +211,11 @@ export const curryIt = fn => {
 export const curry = f => (...args) =>
   args.length < f.length ? curry(f.bind(null, ...args)) : f(...args)
 
-/**
- * Generador de posiciones no ocupadas.
- *
- * @param {Array[integer]} takenSlots lugares ya ocupados.
- * @return {generator[integer]}
- */
-export function* iterAvailableSlots (takenSlots) {
-  for (let pos = 1; true; pos++) {
-    if (!takenSlots.includes(pos)) yield pos
-  }
-}
+export const reduceUniques = mapper => (acc, item) =>
+        acc.some(mapper(item)) ? acc : acc.concat(item)
 
-/**
- * Devuelve un arreglo de números desde left (incluido) hasta right (no incluido).
- *
- * Si solo se proporciona un parámetro lo asume como right y left igual a 0.
- *
- * @param {Number.interger} left
- * @param {Number.integer} right opcional
- */
-export const range = (left, right) => {
-  const upper = right || left
-  const base = right && left || 0
+// example
+const comparerExample = original => item => original.a === item.a
 
-  return Array(upper - base).fill(base).map((n, p) => n + p)
-}
+export const takeUniques = comparer => items =>
+  items.reduce(reduceUniques(comparer), [])

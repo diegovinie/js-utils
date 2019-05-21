@@ -10,7 +10,8 @@ import {
   createUniqueToken,
   compose,
   curryIt,
-  curry
+  curry,
+  takeUniques
 } from '../../../src/general'
 
 describe('wrapText', () => {
@@ -246,5 +247,22 @@ describe('curry', () => {
 
   it('partial args list should return a function', () => {
     expect(typeof curriedPromOf5(1, 2, 3, 4)).toBe('function')
+  })
+})
+
+describe('takeUniques', () => {
+  const items = [
+    {a: 1},
+    {a: 2},
+    {a: 1},
+    {a: 2},
+    {a: 4},
+    {a: 8}
+  ]
+
+  it('shoud have uniques', () => {
+    const uniques = takeUniques(o => i => o.a === i.a)(items)
+
+    expect(uniques.length).toBe([...new Set(items.map(i => i.a))].length)
   })
 })
