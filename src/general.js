@@ -211,11 +211,26 @@ export const curryIt = fn => {
 export const curry = f => (...args) =>
   args.length < f.length ? curry(f.bind(null, ...args)) : f(...args)
 
-export const reduceUniques = mapper => (acc, item) =>
-        acc.some(mapper(item)) ? acc : acc.concat(item)
+/**
+ * Para ser usado en pliegues. Si la comparación es false concatena.
+ *
+ * @param {Function} comparator toma 2 parámetros y devuelve Boolean.
+ * @param {Array} acc el array acumulador.
+ * @param {mixed} item
+ * @return {Array}
+ */
+export const reduceUniques = comparator => (acc, item) =>
+        acc.some(comparator(item)) ? acc : acc.concat(item)
 
 // example
 const comparerExample = original => item => original.a === item.a
 
-export const takeUniques = comparer => items =>
-  items.reduce(reduceUniques(comparer), [])
+/**
+ * Devuelve elementos que son únicos al ser equiparados con una función.
+ *
+ * @param {Function} comparator toma dos parámetros y devuelve Boolean.
+ * @param {Array} items arreglo a ser filtrado.
+ * @return {Array}
+ */
+export const takeUniques = comparator => items =>
+  items.reduce(reduceUniques(comparator), [])
