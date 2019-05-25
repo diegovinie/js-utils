@@ -146,14 +146,16 @@ export const debounce = callback => {
  */
 export const createUniqueToken = tag => (tag || '') + Math.random().toString(36).substr(2)
 
+export const reverseArray = items =>
+  items.map((_, i, ls) => ls[ls.length - 1 - i])
+
 /**
  * Voltea una cadena de texto.
  *
  * @param {string} stmt la cadena de texto.
  * @return {string}
  */
-export const reverseString = stmt =>
-  stmt.split('').map((_, i, ls) => ls[ls.length - 1 - i]).join('')
+export const reverseString = stmt => reverseArray(stmt.split('')).join('')
 
 /**
  * Comprueba si una cadena es palíndrome.
