@@ -1,6 +1,6 @@
-# Funciones de general.js
+# Funciones de main.js
 
-## [wrapText](https://github.com/diegovinie/js-utils/blob/31e279dc2f884343cdd2f7d843ef16cca1267454/src/general.js#L11)
+## [wrapText](https://github.com/diegovinie/js-utils/blob/31e279dc2f884343cdd2f7d843ef16cca1267454/src/general.js#L11) (rev por cambio de nombre)
 `wrapText = length => text => String`
 
 Toma una cadena de texto *text* y la recorta en líneas de longitud mínima `integer` *length*,

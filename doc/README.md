@@ -1,3 +1,3 @@
 # Documentación
 
-- [general.js](general.md)
+- [main.js](main.md)

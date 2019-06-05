@@ -1,4 +1,4 @@
-import {createUniqueToken} from './general'
+import {createUniqueToken} from './main'
 
 const handleDragstart = e => {
   e.target.id = e.target.id || createUniqueToken()

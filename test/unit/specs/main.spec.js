@@ -12,7 +12,7 @@ import {
   curryIt,
   curry,
   takeUniques
-} from '../../../src/general'
+} from '../../../src/main'
 
 describe('wrapText', () => {
   const text = 'Esto es un texto para probar que divide con saltos de línea.'

@@ -1,7 +1,7 @@
-import * as general from './general'
+import * as main from './main'
 import DragAndDrop from './DragAndDrop'
 import IframeKeyboardEvents from './IframeKeyboardEvents'
 
-export default general
+export default main
 export DragAndDrop
 export IframeKeyboardEvents
