@@ -1,7 +1,7 @@
 # Javascript utils
 
 ### Instalación
-`npm install https://github.com/diegovinie/js-utils.git`
+`npm install @diegovinie/js-utils`
 
 ### Uso básico
 - Para las funciones (siempre en camelCase):
