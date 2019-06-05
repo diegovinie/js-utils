@@ -2,7 +2,7 @@
   "name": "@diegovinie/js-utils",
   "version": "1.0.0",
   "description": "Javascript functions for general purpose",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "jest --config test/unit/jest.conf.js --coverage",
     "test-results": "php -S localhost:3000 -t test/unit/coverage/lcov-report && x-www-browser localhost:3000",

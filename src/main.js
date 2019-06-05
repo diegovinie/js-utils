@@ -1,3 +1,9 @@
+import DragAndDropImported from './DragAndDrop'
+import IframeKeyboardEventsImported from './IframeKeyboardEvents'
+
+export const DragAndDrop = DragAndDropImported
+export const IframeKeyboardEvents = IframeKeyboardEventsImported
+
 /**
  * Devuelve un string dividido por saltos de línea.
  *
