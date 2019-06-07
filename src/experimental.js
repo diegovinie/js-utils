@@ -32,3 +32,54 @@ function maxDiffOriginal (arr) {
 
     return diffs.reduce(findMax, 0)
 }
+
+class Model {
+  defaults = {}
+
+  _events = {
+    change: details =>
+      dispatchEvent(new CustomEvent('change', { details }))
+  }
+
+  constructor (props) {
+    this.attributes = { ...this.defaults, ...props }
+    this._prevAttrs = {}
+
+    this._attrs = new Proxy(
+      this.attributes,
+      this._proxyHandler(this._callback)
+    )
+  }
+
+  get = attr => this._attrs[attr]
+
+  set = attrs => {
+    this._prevAttrs = { ...this.attributes }
+
+    Object.entries(attrs).forEach(([k, v]) => {
+      this._attrs[k] = v
+    })
+    return this
+  }
+
+  toJSON = () => JSON.stringify(this.attributes)
+
+  _proxyHandler = callback => ({
+    set: function (obj, prop, val) {
+
+      const prev = obj[prop]
+      obj[prop] = val
+      callback(arguments)
+      this._events.change({prev, val})
+      return true
+    }.bind(this),
+
+    get: function (obj, prop) {
+      console.log('getted', prop)
+      callback(arguments)
+      return obj[prop]
+    }.bind(this)
+  })
+
+  _callback = (...args) => console.log(args)
+}
