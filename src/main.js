@@ -242,3 +242,21 @@ const comparerExample = original => item => original.a === item.a
  */
 export const takeUniques = comparator => items =>
   items.reduce(reduceUniques(comparator), [])
+
+const grouper = prop => (acc, item) => {
+  const key = item[prop]
+  acc[key] = (acc[key] || []).concat(item)
+  return acc
+}
+
+/**
+ * Devuelve un objeto.
+ *
+ * @uses {Function} grouper
+ *
+ * @param {Array} items
+ * @param {String} prop
+ * @return {Object[Array]}
+ */
+export const groupBy = items => prop =>
+  Array.isArray(items) ? items.reduce(grouper(prop), {}) : {}

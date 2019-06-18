@@ -11,7 +11,8 @@ import {
   compose,
   curryIt,
   curry,
-  takeUniques
+  takeUniques,
+  groupBy
 } from '../../../src/main'
 
 describe('wrapText', () => {
@@ -264,5 +265,11 @@ describe('takeUniques', () => {
     const uniques = takeUniques(o => i => o.a === i.a)(items)
 
     expect(uniques.length).toBe([...new Set(items.map(i => i.a))].length)
+  })
+})
+
+describe('groupBy', () => {
+  it.skip('should group', () => {
+    
   })
 })
