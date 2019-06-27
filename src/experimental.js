@@ -1,3 +1,5 @@
+import {quicksort, compose as _c} from './main'
+
 const oneAndLefties = (one, p, numbers) => [one, numbers.slice(0, p)]
 
 const findMax = (acc, n) => n > acc ? n : acc
@@ -7,6 +9,18 @@ const diffOneAndNumbers = ([one, numbers]) =>
 
 const maxDiff = numbers =>
   numbers.map(oneAndLefties).map(diffOneAndNumbers).reduce(findMax, -1)
+
+const findMissingNumbers = numbers => count => {
+  const expectedNumbers = Array(count).fill(0).map((_, pos) => pos + 1)
+
+  const reducer = numbers => ([j, orphans], num) =>
+    num !== numbers[j]
+      ? [j, orphans.concat(num)]
+      : [j + 1, orphans]
+
+  return expectedNumbers
+    .reduce(_c(reducer, quicksort)(numbers), [0, []] )[1]
+}
 
 function maxDiffOriginal (arr) {
     // return Array[integer, Array[interger]] number & the list of left wing
